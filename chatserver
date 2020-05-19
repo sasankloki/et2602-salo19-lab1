@@ -81,7 +81,7 @@ def clientthread(conn,addr):
                                 pass
                     #else if and next elif        
                         if count != 0:
-                            conn.sendall('ERROR -> dont use control characters'.encode('utf-8'))
+                            conn.sendall('ERROR , do not use control characters in the message section'.encode('utf-8'))
                         else:
                             message_to_send = 'MSG '+nick1+' ' + message1[:-1]
                 
