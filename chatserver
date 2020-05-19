@@ -1,1 +1,25 @@
+#!/usr/bin/python3
+import sys
+from _thread import *
+import re
+import select
+import socket
 
+if len(sys.argv)!=2:
+    print("type the input format in ./chatserver ip:port ")
+    sys.exit()
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+
+Info = (sys.argv[1])
+a=Info.split(':')
+IP_addr=str(a[0])
+port=int(a[1])
+
+server.bind((IP_addr,port))
+
+server.listen(100)
+
+print('hold back for clients to connect')
